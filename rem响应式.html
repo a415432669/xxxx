@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=750,user-scalable=no" />
+		<script type="text/javascript">
+			//假设7.5rem ===> 100%屏幕宽度1920/960/320
+			//1rem = 当前屏幕的宽度/7.5（像素）===》给到HTML
+			
+			(function(){
+				var htmlFontSize = window.innerWidth/7.5
+				document.querySelector('html').style.fontSize = htmlFontSize+'px';
+				//窗口条件的时候重新执行
+				window.onresize = function(){
+					var htmlFontSize = window.innerWidth/7.5
+					document.querySelector('html').style.fontSize = htmlFontSize+'px';
+				}
+			})()
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+			*{margin: 0;padding: 0;box-sizing: border-box;}
+			#aa{
+				width: 3.75rem;
+				height: 1rem;
+				background: skyblue;
+			}
+		</style>
+		<div id="aa">
+			
+		</div>
+	</body>
+</html>

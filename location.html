@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			
+			function createDiv(id,content){
+				var newDiv = document.createElement('div')
+				newDiv.innerHTML = content
+				newDiv.id = id
+				return newDiv
+			}
+			
+			indexDiv = createDiv('index','这是首页')
+			listDiv = createDiv('list','这是列表页')
+			
+			switch(location.hash){
+				case '':
+					document.body.innerHTML = ''
+					document.body.appendChild(indexDiv)
+					break;
+				case '#list':
+					document.body.innerHTML = ''
+					document.body.appendChild(listDiv)
+					break;
+			}
+			
+			
+		</script>
+	</body>
+</html>

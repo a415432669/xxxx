@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=750,user-scalable=no" />
+		<script type="text/javascript">
+			(function(){
+				function responsive(){
+					//用户代理
+					var userAgent = navigator.userAgent;
+					console.log(userAgent)
+					//判断用户代理是否含有相对应的关键词
+					var result =  userAgent.indexOf('Android') == -1 ? '':'Android'
+					result = result +  (userAgent.indexOf('iPhone') == -1 ? '':'iPhone')
+					
+					result = result + (userAgent.indexOf('iPad') == -1 ? '':'iPad')
+					console.log(result)
+					if(result !== ''){
+						console.log('这个浏览器是mobile端的')
+						result += ' mobile'
+					}else{
+						console.log('这个浏览器是PC端的')
+						result += 'PC'
+					}
+					
+					//根据屏幕大小，添加相对应classname
+					if(window.innerWidth>1600){
+						result += ' gt1600'
+					}else if(window.innerWidth>960){
+						result += ' lt1600'
+						result += ' gt960'
+					}else if(window.innerWidth>640){
+						result += ' lt960'
+						result += ' gt640'
+					}else if(window.innerWidth>320){
+						result += ' lt640'
+						result += ' gt320'
+					}else{
+						result += ' lt320'
+					}
+					document.querySelector('html').className = result
+				}
+				responsive()
+				
+				//当浏览器调节窗口大小的时候，重新执行刚才的函数
+				window.onresize = function(){
+					responsive()
+				}
+				
+			})()
+		</script>
+	</head>
+	<body>
+		<!--
+			Window
+			Navigator
+			Screen
+			History
+			Location
+		-->
+		
+		<!--
+			nvaigator一般会用来判断是什么浏览器什么系统，以此为依据来显示不一样的内容，相当于媒体查询所做的事情
+		-->
+		<style type="text/css">
+			
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			html{
+				font-size: 50px;
+			}
+			.iPhone .bb{
+				background: purple;
+			}
+			.iPad .bb{
+				background: skyblue;
+			}
+			.Android .bb{
+				background: yellow;
+			}
+			.PC .bb{
+				background: black;
+				color: #fff;
+			}
+			
+			.lt640.gt320 .bb{
+				background: orangered;
+			}
+			.PC .bb{
+				width: 10rem;
+				height: 10rem;
+			}
+		</style>
+		<a href="history.html">跳转history</a>
+		<div class="bb">
+			<h1>helloWorld</h1>
+		</div>
+	</body>
+</html>

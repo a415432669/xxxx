@@ -9,7 +9,7 @@
 			navigator.geolocation.getCurrentPosition(function(position){
 				var str = ''
 				for (item in position.coords){
-					str += position.coords[item]
+					str += (item + position.coords[item])
 				}
 				document.body.innerHTML = str
 				

@@ -7,14 +7,7 @@
 	<body>
 		<script type="text/javascript">
 			navigator.geolocation.getCurrentPosition(function(position){
-				console.log(123)
-				console.log(position)
-				var str = ''
-				for (item in position){
-					str += position[item]
-				}
-				document.body.innerHTML = str
-				//document.body.innerHTML = JSON.stringify(position) 
+				document.body.innerHTML = JSON.stringify(position.coords)
 				
 			})
 //			navigator.geolocation.watchPosition(function(position){
